@@ -149,7 +149,7 @@ body {
 .bg-violet {
     background-color: var(--moderate-violet);
     background-image: url('images/bg-pattern-quotation.svg');
-    background-position-x: 85%;
+    background-position-x: 81.7%;
     background-position-y: top;
     background-repeat: no-repeat;
 }
