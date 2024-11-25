@@ -7,35 +7,8 @@
     --light-gray: hsl(0, 0%, 81%);
     --light-grayish-blue: hsl(210, 46%, 95%);
     --shadow: hsla(217, 19%, 35%, 24.74%);
-}
 
-.bg-violet {
-    background-color: var(--moderate-violet);
-    background-image: url('images/bg-pattern-quotation.svg');
-    background-position-x: 85%;
-    background-position-y: top;
-    background-repeat: no-repeat;
-}
-
-.bg-violet .quote{
-    color: var(--light-gray);
-}
-
-.bg-blackish-blue {
-    background-color: var(--very-dark-blackish-blue);
-}
-
-.bg-blackish-blue .display {
-    color: var(--light-grayish-blue);
-}
-
-.bg-dark-grayish-blue {
-    background-color: var(--very-dark-grayish-blue);
-}
-
-.bg-white {
-    background-color: white;
-    color: var(--very-dark-grayish-blue);
+    --card-width: 25.5rem;
 }
 
 * {
@@ -80,37 +53,41 @@ body {
 }
 
 /*containers*/
+
 .container {
     width: 100%;
-    /*height: calc(100vh - 1px);*/
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 16.5rem 0;
 
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 1200px) {
         padding: 7.1rem 2.4rem;
     }
 }
 
 .card-group {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto var(--card-width);
     column-gap: 3rem;
     max-width: 111rem;
 
-    @media screen and (max-width: 768px){
-        flex-direction: column;
+    @media screen and (max-width: 1200px){
+        grid-template-columns: auto;
         row-gap: 2.4rem;
     }
 }
 
 .card-group-left {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, var(--card-width));
     row-gap: 2.4rem;
-    flex-grow: 3;
-    flex-basis: 0;
+    column-gap: 3rem;
+
+    @media screen and (max-width: 1200px){
+        grid-template-columns: auto;
+    }
 }
 
 .card-group-right {
@@ -169,7 +146,45 @@ body {
     border-radius: 100%;
 }
 
+.bg-violet {
+    background-color: var(--moderate-violet);
+    background-image: url('images/bg-pattern-quotation.svg');
+    background-position-x: 85%;
+    background-position-y: top;
+    background-repeat: no-repeat;
+}
 
+.bg-violet .quote{
+    color: var(--light-gray);
+}
+
+.bg-blackish-blue {
+    background-color: var(--very-dark-blackish-blue);
+}
+
+.bg-blackish-blue .display {
+    color: var(--light-grayish-blue);
+}
+
+.bg-dark-grayish-blue {
+    background-color: var(--very-dark-grayish-blue);
+}
+
+.bg-white {
+    background-color: white;
+    color: var(--very-dark-grayish-blue);
+}
+
+.colspan-2 {
+    grid-column: span 2;
+
+    @media screen and (max-width: 576px) {
+        grid-column: span 1;
+    }
+}
+
+
+/*attribution*/
 .attribution {
     font-size: 11px;
     text-align: center;
